@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Strength - 🀄️Mortal Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Mortal - a free and open source AI for Japanese mahjong">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../css/mdbook-admonish.css">
+        <link rel="stylesheet" href="../css/extra.css">
+
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../online/index.html"><strong aria-hidden="true">1.</strong> Online Service</a></li><li class="chapter-item expanded affix "><li class="part-title">Performance</li><li class="chapter-item expanded "><a href="../perf/strength.html" class="active"><strong aria-hidden="true">2.</strong> Strength</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Benchmarks</div></li><li class="chapter-item expanded affix "><li class="part-title">User Guide</li><li class="chapter-item expanded "><a href="../user/docker.html"><strong aria-hidden="true">4.</strong> Docker Quick Start</a></li><li class="chapter-item expanded "><a href="../user/build.html"><strong aria-hidden="true">5.</strong> Build</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Training</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> Pre-Trained Model</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> Configurations</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Offline Phase</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> Online Phase</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> mjai</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">7.1.</strong> Protocol Specification</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.2.</strong> Interface</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.3.</strong> Log Player</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Emulator</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Mortal VS Mortal</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.2.</strong> Mortal VS akochan</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> Mortal VS MjaiLogEngine</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">Reference Guide</li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> Components of Mortal</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> Reinforcement Learning</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> Observation and Action Representations</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.2.</strong> Network Structures</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.3.</strong> Environment and Reward Design</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.4.</strong> Training and Inference</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> libriichi - Mahjong Essentials in Rust</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">11.1.</strong> libriichi::state</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.2.</strong> libriichi::dataset</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.3.</strong> libriichi::algo</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.4.</strong> libriichi::agent</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.5.</strong> libriichi::arena</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.6.</strong> Executable Targets</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> Comparison with Other AIs - Engineering-Wise</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> Failed Attempts</div></li><li class="chapter-item expanded "><a href="../ref/meta.html"><strong aria-hidden="true">14.</strong> Meta</a></li><li class="chapter-item expanded "><a href="../ref/references.html"><strong aria-hidden="true">15.</strong> References</a></li><li class="chapter-item expanded affix "><li class="part-title">Contributor Guide</li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> How to Contribute</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">16.1.</strong> As a Data Scientist or Python Developer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.2.</strong> As a Rust Developer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.3.</strong> As a Designer or Front-End Developer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.4.</strong> As a Mahjong Player</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.5.</strong> As a Sponsor</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../contributors_sponsors.html">Contributors & Sponsors</a></li><li class="chapter-item expanded affix "><a href="../donate.html">Donate❤️</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">🀄️Mortal Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Equim-chan/Mortal" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="strength"><a class="header" href="#strength">Strength</a></h1>
+<p>The Mortal snapshot used in this is <code>22040703</code>.</p>
+<h2 id="simulation-environment"><a class="header" href="#simulation-environment">Simulation environment</a></h2>
+<p>The simulation uses a duplicate mahjong setting as follows</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Table</th><th style="text-align: center">East start (0)</th><th style="text-align: center">South start (1)</th><th style="text-align: center">West start (2)</th><th style="text-align: center">North start (3)</th></tr></thead><tbody>
+<tr><td style="text-align: center">1</td><td style="text-align: center">Challenger</td><td style="text-align: center">Champion</td><td style="text-align: center">Champion</td><td style="text-align: center">Champion</td></tr>
+<tr><td style="text-align: center">2</td><td style="text-align: center">Champion</td><td style="text-align: center">Challenger</td><td style="text-align: center">Champion</td><td style="text-align: center">Champion</td></tr>
+<tr><td style="text-align: center">3</td><td style="text-align: center">Champion</td><td style="text-align: center">Champion</td><td style="text-align: center">Challenger</td><td style="text-align: center">Champion</td></tr>
+<tr><td style="text-align: center">4</td><td style="text-align: center">Champion</td><td style="text-align: center">Champion</td><td style="text-align: center">Champion</td><td style="text-align: center">Challenger</td></tr>
+</tbody></table>
+</div>
+<p>In this setting, every 4 games are initialized with same random seed. The emulator guarantees that with the same (seed, kyoku, honba) tuple, the yama, haipai, dora/ura indicators and rinshan tiles are deterministic and reproducible.</p>
+<p>The emulator is implemented in <a href="https://github.com/Equim-chan/Mortal/tree/main/libriichi/src/arena"><code>libriichi::arena</code></a>.</p>
+<h2 id="mortal-vs-akochan"><a class="header" href="#mortal-vs-akochan">Mortal vs akochan</a></h2>
+<p>Challenger is akochan and Champion is Mortal.</p>
+<h3 id="akochan-with-jun_pt--90-45-0--135"><a class="header" href="#akochan-with-jun_pt--90-45-0--135">akochan with jun_pt = [90, 45, 0, -135]</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right"></th><th style="text-align: left">Mortal</th><th style="text-align: left">akochan</th></tr></thead><tbody>
+<tr><td style="text-align: right">Games</td><td style="text-align: left">70296</td><td style="text-align: left">23432</td></tr>
+<tr><td style="text-align: right">Rounds</td><td style="text-align: left">750504</td><td style="text-align: left">250168</td></tr>
+<tr><td style="text-align: right">Rounds as dealer</td><td style="text-align: left">188838</td><td style="text-align: left">61330</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">1st (rate)</td><td style="text-align: left">17850 (0.253926)</td><td style="text-align: left">5582 (0.238221)</td></tr>
+<tr><td style="text-align: right">2nd (rate)</td><td style="text-align: left">17911 (0.254794)</td><td style="text-align: left">5521 (0.235618)</td></tr>
+<tr><td style="text-align: right">3rd (rate)</td><td style="text-align: left">17538 (0.249488)</td><td style="text-align: left">5894 (0.251536)</td></tr>
+<tr><td style="text-align: right">4th (rate)</td><td style="text-align: left">16997 (0.241792)</td><td style="text-align: left">6435 (0.274624)</td></tr>
+<tr><td style="text-align: right">Tobi(rate)</td><td style="text-align: left">4426 (0.062962)</td><td style="text-align: left">1916 (0.081769)</td></tr>
+<tr><td style="text-align: right">Avg rank</td><td style="text-align: left">2.479145</td><td style="text-align: left">2.562564</td></tr>
+<tr><td style="text-align: right">Total pt</td><td style="text-align: left">117900</td><td style="text-align: left">-117900</td></tr>
+<tr><td style="text-align: right">Avg game pt</td><td style="text-align: left">1.677194</td><td style="text-align: left">-5.031581</td></tr>
+<tr><td style="text-align: right">Total Δscore</td><td style="text-align: left">28694400</td><td style="text-align: left">-28694400</td></tr>
+<tr><td style="text-align: right">Avg game Δscore</td><td style="text-align: left">408.193923</td><td style="text-align: left">-1224.581769</td></tr>
+<tr><td style="text-align: right">Avg round Δscore</td><td style="text-align: left">38.233507</td><td style="text-align: left">-114.700521</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Win rate</td><td style="text-align: left">0.213570</td><td style="text-align: left">0.195952</td></tr>
+<tr><td style="text-align: right">Deal-in rate</td><td style="text-align: left">0.114841</td><td style="text-align: left">0.131907</td></tr>
+<tr><td style="text-align: right">Call rate</td><td style="text-align: left">0.296321</td><td style="text-align: left">0.333208</td></tr>
+<tr><td style="text-align: right">Riichi rate</td><td style="text-align: left">0.181443</td><td style="text-align: left">0.215923</td></tr>
+<tr><td style="text-align: right">Ryukyoku rate</td><td style="text-align: left">0.168335</td><td style="text-align: left">0.168335</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Avg winning Δscore</td><td style="text-align: left">6483.038962</td><td style="text-align: left">6747.283817</td></tr>
+<tr><td style="text-align: right">Avg winning Δscore as dealer</td><td style="text-align: left">8439.922489</td><td style="text-align: left">8812.331701</td></tr>
+<tr><td style="text-align: right">Avg winning Δscore as non-dealer</td><td style="text-align: left">5727.687944</td><td style="text-align: left">5996.378202</td></tr>
+<tr><td style="text-align: right">Avg riichi winning Δscore</td><td style="text-align: left">8079.942256</td><td style="text-align: left">8271.697489</td></tr>
+<tr><td style="text-align: right">Avg open winning Δscore</td><td style="text-align: left">4976.946811</td><td style="text-align: left">4976.754839</td></tr>
+<tr><td style="text-align: right">Avg dama winning Δscore</td><td style="text-align: left">6515.832517</td><td style="text-align: left">7745.257453</td></tr>
+<tr><td style="text-align: right">Avg ryukyoku Δscore</td><td style="text-align: left">-25.851697</td><td style="text-align: left">77.555091</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Avg winning turn</td><td style="text-align: left">11.129126</td><td style="text-align: left">11.182881</td></tr>
+<tr><td style="text-align: right">Avg riichi winning turn</td><td style="text-align: left">11.126644</td><td style="text-align: left">11.249845</td></tr>
+<tr><td style="text-align: right">Avg open winning turn</td><td style="text-align: left">11.086393</td><td style="text-align: left">11.117438</td></tr>
+<tr><td style="text-align: right">Avg dama winning turn</td><td style="text-align: left">11.264727</td><td style="text-align: left">11.120403</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Avg deal-in turn</td><td style="text-align: left">11.485306</td><td style="text-align: left">11.617261</td></tr>
+<tr><td style="text-align: right">Avg deal-in Δscore</td><td style="text-align: left">-5332.635255</td><td style="text-align: left">-5334.579836</td></tr>
+<tr><td style="text-align: right">Avg deal-in Δscore to dealer</td><td style="text-align: left">-7104.268622</td><td style="text-align: left">-7075.531317</td></tr>
+<tr><td style="text-align: right">Avg deal-in Δscore to non-dealer</td><td style="text-align: left">-4716.800350</td><td style="text-align: left">-4692.321414</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Chasing riichi rate</td><td style="text-align: left">0.180357</td><td style="text-align: left">0.148842</td></tr>
+<tr><td style="text-align: right">Riichi chased rate</td><td style="text-align: left">0.175775</td><td style="text-align: left">0.182350</td></tr>
+<tr><td style="text-align: right">Winning rate after riichi</td><td style="text-align: left">0.485805</td><td style="text-align: left">0.447470</td></tr>
+<tr><td style="text-align: right">Deal-in rate after riichi</td><td style="text-align: left">0.149147</td><td style="text-align: left">0.159913</td></tr>
+<tr><td style="text-align: right">Avg riichi turn</td><td style="text-align: left">7.798390</td><td style="text-align: left">7.944443</td></tr>
+<tr><td style="text-align: right">Avg riichi Δscore</td><td style="text-align: left">3207.900187</td><td style="text-align: left">2916.183794</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Avg number of calls</td><td style="text-align: left">1.449355</td><td style="text-align: left">1.433600</td></tr>
+<tr><td style="text-align: right">Winning rate after call</td><td style="text-align: left">0.317703</td><td style="text-align: left">0.267125</td></tr>
+<tr><td style="text-align: right">Deal-in rate after call</td><td style="text-align: left">0.131733</td><td style="text-align: left">0.145337</td></tr>
+<tr><td style="text-align: right">Avg call Δscore</td><td style="text-align: left">907.807905</td><td style="text-align: left">562.586674</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Dealer wins/all dealer rounds</td><td style="text-align: left">0.236388</td><td style="text-align: left">0.213142</td></tr>
+<tr><td style="text-align: right">Dealer wins/all wins</td><td style="text-align: left">0.278498</td><td style="text-align: left">0.266661</td></tr>
+<tr><td style="text-align: right">Deal-in to dealer/all deal-ins</td><td style="text-align: left">0.257945</td><td style="text-align: left">0.269493</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Yakuman (rate)</td><td style="text-align: left">112 (0.000149233)</td><td style="text-align: left">21 (0.000083944)</td></tr>
+<tr><td style="text-align: right">Nagashi mangan (rate)</td><td style="text-align: left">20 (0.000026649)</td><td style="text-align: left">0 (0.000000000)</td></tr>
+</tbody></table>
+</div>
+<h3 id="akochan-with-jun_pt--90-30--30--90"><a class="header" href="#akochan-with-jun_pt--90-30--30--90">akochan with jun_pt = [90, 30, -30, -90]</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: right"></th><th style="text-align: left">Mortal</th><th style="text-align: left">akochan</th></tr></thead><tbody>
+<tr><td style="text-align: right">Games</td><td style="text-align: left">73164</td><td style="text-align: left">24388</td></tr>
+<tr><td style="text-align: right">Rounds</td><td style="text-align: left">779958</td><td style="text-align: left">259986</td></tr>
+<tr><td style="text-align: right">Rounds as dealer</td><td style="text-align: left">196050</td><td style="text-align: left">63936</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">1st (rate)</td><td style="text-align: left">18341 (0.250683)</td><td style="text-align: left">6047 (0.247950)</td></tr>
+<tr><td style="text-align: right">2nd (rate)</td><td style="text-align: left">18501 (0.252870)</td><td style="text-align: left">5887 (0.241389)</td></tr>
+<tr><td style="text-align: right">3rd (rate)</td><td style="text-align: left">18918 (0.258570)</td><td style="text-align: left">5470 (0.224291)</td></tr>
+<tr><td style="text-align: right">4th (rate)</td><td style="text-align: left">17404 (0.237877)</td><td style="text-align: left">6984 (0.286370)</td></tr>
+<tr><td style="text-align: right">Tobi(rate)</td><td style="text-align: left">4580 (0.062599)</td><td style="text-align: left">2058 (0.084386)</td></tr>
+<tr><td style="text-align: right">Avg rank</td><td style="text-align: left">2.483639</td><td style="text-align: left">2.549082</td></tr>
+<tr><td style="text-align: right">Total pt</td><td style="text-align: left">133695</td><td style="text-align: left">-133695</td></tr>
+<tr><td style="text-align: right">Avg game pt</td><td style="text-align: left">1.827333</td><td style="text-align: left">-5.481999</td></tr>
+<tr><td style="text-align: right">Total Δscore</td><td style="text-align: left">24085000</td><td style="text-align: left">-24085000</td></tr>
+<tr><td style="text-align: right">Avg game Δscore</td><td style="text-align: left">329.191952</td><td style="text-align: left">-987.575857</td></tr>
+<tr><td style="text-align: right">Avg round Δscore</td><td style="text-align: left">30.879868</td><td style="text-align: left">-92.639604</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Win rate</td><td style="text-align: left">0.213935</td><td style="text-align: left">0.197126</td></tr>
+<tr><td style="text-align: right">Deal-in rate</td><td style="text-align: left">0.114030</td><td style="text-align: left">0.138531</td></tr>
+<tr><td style="text-align: right">Call rate</td><td style="text-align: left">0.296377</td><td style="text-align: left">0.331276</td></tr>
+<tr><td style="text-align: right">Riichi rate</td><td style="text-align: left">0.180537</td><td style="text-align: left">0.225578</td></tr>
+<tr><td style="text-align: right">Ryukyoku rate</td><td style="text-align: left">0.166147</td><td style="text-align: left">0.166147</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Avg winning Δscore</td><td style="text-align: left">6442.207240</td><td style="text-align: left">6887.453659</td></tr>
+<tr><td style="text-align: right">Avg winning Δscore as dealer</td><td style="text-align: left">8355.842889</td><td style="text-align: left">9107.688304</td></tr>
+<tr><td style="text-align: right">Avg winning Δscore as non-dealer</td><td style="text-align: left">5710.956124</td><td style="text-align: left">6097.529166</td></tr>
+<tr><td style="text-align: right">Avg riichi winning Δscore</td><td style="text-align: left">8015.720543</td><td style="text-align: left">8426.118884</td></tr>
+<tr><td style="text-align: right">Avg open winning Δscore</td><td style="text-align: left">4977.606459</td><td style="text-align: left">5089.079611</td></tr>
+<tr><td style="text-align: right">Avg dama winning Δscore</td><td style="text-align: left">6456.614746</td><td style="text-align: left">7552.749577</td></tr>
+<tr><td style="text-align: right">Avg ryukyoku Δscore</td><td style="text-align: left">-56.008272</td><td style="text-align: left">168.024817</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Avg winning turn</td><td style="text-align: left">11.082213</td><td style="text-align: left">11.229112</td></tr>
+<tr><td style="text-align: right">Avg riichi winning turn</td><td style="text-align: left">11.068438</td><td style="text-align: left">11.295316</td></tr>
+<tr><td style="text-align: right">Avg open winning turn</td><td style="text-align: left">11.056963</td><td style="text-align: left">11.173257</td></tr>
+<tr><td style="text-align: right">Avg dama winning turn</td><td style="text-align: left">11.199211</td><td style="text-align: left">11.048223</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Avg deal-in turn</td><td style="text-align: left">11.451006</td><td style="text-align: left">11.619114</td></tr>
+<tr><td style="text-align: right">Avg deal-in Δscore</td><td style="text-align: left">-5345.643643</td><td style="text-align: left">-5321.343292</td></tr>
+<tr><td style="text-align: right">Avg deal-in Δscore to dealer</td><td style="text-align: left">-7139.180226</td><td style="text-align: left">-6970.939034</td></tr>
+<tr><td style="text-align: right">Avg deal-in Δscore to non-dealer</td><td style="text-align: left">-4734.051536</td><td style="text-align: left">-4706.768293</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Chasing riichi rate</td><td style="text-align: left">0.176882</td><td style="text-align: left">0.166999</td></tr>
+<tr><td style="text-align: right">Riichi chased rate</td><td style="text-align: left">0.183203</td><td style="text-align: left">0.173581</td></tr>
+<tr><td style="text-align: right">Winning rate after riichi</td><td style="text-align: left">0.488023</td><td style="text-align: left">0.441182</td></tr>
+<tr><td style="text-align: right">Deal-in rate after riichi</td><td style="text-align: left">0.150216</td><td style="text-align: left">0.159309</td></tr>
+<tr><td style="text-align: right">Avg riichi turn</td><td style="text-align: left">7.780905</td><td style="text-align: left">8.046447</td></tr>
+<tr><td style="text-align: right">Avg riichi Δscore</td><td style="text-align: left">3181.566071</td><td style="text-align: left">2947.654611</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Avg number of calls</td><td style="text-align: left">1.453448</td><td style="text-align: left">1.444425</td></tr>
+<tr><td style="text-align: right">Winning rate after call</td><td style="text-align: left">0.320407</td><td style="text-align: left">0.267187</td></tr>
+<tr><td style="text-align: right">Deal-in rate after call</td><td style="text-align: left">0.131492</td><td style="text-align: left">0.153808</td></tr>
+<tr><td style="text-align: right">Avg call Δscore</td><td style="text-align: left">914.957043</td><td style="text-align: left">564.244662</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Dealer wins/all dealer rounds</td><td style="text-align: left">0.235312</td><td style="text-align: left">0.210351</td></tr>
+<tr><td style="text-align: right">Dealer wins/all wins</td><td style="text-align: left">0.276477</td><td style="text-align: left">0.262420</td></tr>
+<tr><td style="text-align: right">Deal-in to dealer/all deal-ins</td><td style="text-align: left">0.254287</td><td style="text-align: left">0.271435</td></tr>
+<tr><td style="text-align: right"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: right">Yakuman (rate)</td><td style="text-align: left">163 (0.000208986)</td><td style="text-align: left">31 (0.000119237)</td></tr>
+<tr><td style="text-align: right">Nagashi mangan (rate)</td><td style="text-align: left">15 (0.000019232)</td><td style="text-align: left">0 (0.000000000)</td></tr>
+</tbody></table>
+</div>
+<h2 id="tenhou"><a class="header" href="#tenhou">Tenhou</a></h2>
+<p>Tenhou does not allow AI to play in ranked lobby without their permission, therefore I only compared how closely Mortal's decisions matched those of other verified AIs that had previously played in Tenhou tokujou. I also sampled some tokujou and houou games to check against Mortal.</p>
+<p><a href="../assets/match-rate.png"><img src="../assets/match-rate.png" alt="" /></a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../online/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../user/docker.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../online/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../user/docker.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+
+
+    </body>
+</html>
