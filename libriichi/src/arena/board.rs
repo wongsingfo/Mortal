@@ -461,10 +461,11 @@ impl BoardState {
             point.tsumo_total(single_actor == self.oya) + kyotaku_point + honba_left * 300;
 
         vec_add_assign(&mut self.kyoku_deltas, &deltas);
-        let ura_markers = self.player_states[single_actor as usize]
-            .self_riichi_accepted()
-            .then_some(ura_indicators)
-            .unwrap_or_default();
+        let ura_markers = if self.player_states[single_actor as usize].self_riichi_accepted() {
+            ura_indicators
+        } else {
+            Default::default()
+        };
 
         let hora = Event::Hora {
             actor: single_actor,

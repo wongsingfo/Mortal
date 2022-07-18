@@ -64,13 +64,18 @@ pub struct Gameplay {
 }
 
 #[pyclass]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub enum Quality {
     LastPlace,
-    #[default]
     Normal,
     Top300,
     Tenhoui,
+}
+
+impl Default for Quality {
+    fn default() -> Self {
+        Quality::Normal
+    }
 }
 
 struct LoaderContext<'a> {
