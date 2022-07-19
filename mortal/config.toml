@@ -12,7 +12,7 @@ opt_step_every = 1
 save_every = 400
 test_every = 20000
 
-online = false
+online = true
 
 # using env `TRAIN_PLAY_PROFILE`
 [train_play.default]
@@ -64,15 +64,15 @@ beta_lr = 5e-4
 
 [baseline]
 device = 'cuda:0'
-state_file = 'model/baseline.pth'
+state_file = 'model/mortal-v0.pth'
 
 [online.remote]
 host = '127.0.0.1'
 port = 5000
 
 [online.server]
-buffer_dir = '/path/to/buffer'
-drain_dir = '/path/to/drain'
+buffer_dir = 'log/buffer'
+drain_dir = 'log/drain'
 sample_reuse_rate = 0
 sample_reuse_threshold = 0
 capacity = 1600
@@ -83,7 +83,7 @@ stochastic_latent = false
 [1v3]
 games_per_iter = 2000
 iters = 500
-log_dir = '/path/to/1v3'
+log_dir = 'log/1v3'
 
 [1v3.challenger]
 device = 'cuda:0'

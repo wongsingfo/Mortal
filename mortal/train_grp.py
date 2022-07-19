@@ -106,6 +106,14 @@ def train():
         steps = state['steps']
     else:
         steps = 0
+        # save empty state
+        state = {
+            'model': grp.state_dict(),
+            'optimizer': optimizer.state_dict(),
+            'steps': 0,
+            'timestamp': datetime.now().timestamp(),
+        }
+        torch.save(state, state_file)
 
     lr = cfg['optim']['lr']
     optimizer.param_groups[0]['lr'] = lr
