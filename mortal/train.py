@@ -207,6 +207,7 @@ def train():
             steps += 1
             idx += 1
             if idx % opt_step_every == 0:
+                # nn.utils.clip_grad_norm_(mortal.parameters(), max_norm=1, norm_type=2)
                 scaler.step(optimizer)
                 scaler.update()
                 optimizer.zero_grad(set_to_none=True)
