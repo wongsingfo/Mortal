@@ -4,6 +4,18 @@ online:
 	cp mortal/config-online.toml mortal/config.toml
 	(cd mortal && python train.py)
 
+online-server:
+	cp mortal/config-offline.toml mortal/config.toml
+	(cd mortal && python server.py)
+
+online-client:
+	cp mortal/config-offline.toml mortal/config.toml
+	(cd mortal && python client.py)
+
+1v3:
+	cp mortal/config-offline.toml mortal/config.toml
+	(cd mortal && python one_vs_three.py)
+
 offline:
 	cp mortal/config-offline.toml mortal/config.toml
 	(cd mortal && python train.py)

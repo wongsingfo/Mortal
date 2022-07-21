@@ -7,10 +7,10 @@ enable_cudnn_benchmark = true
 enable_amp = false
 
 batch_size = 512
-opt_step_every = 16
+opt_step_every = 1
 
 save_every = 800
-test_every = 20000
+test_every = 9600 # must be the mutiple of save_every
 
 online = false
 
@@ -36,7 +36,12 @@ globs = [
 	'dataset/tenhou_n17/*.json.gz',
 	'dataset/tenhou_n16/*.json.gz',
 	'dataset/tenhou_n15/*.json.gz',
+	# 'dataset/tenhou_n14/*.json.gz', # invalid data
 	'dataset/tenhou_n13/*.json.gz',
+	'dataset/tenhou_n12/*.json.gz',
+	'dataset/tenhou_n11/*.json.gz',
+	'dataset/tenhou_n10/*.json.gz',
+	'dataset/tenhou_n9/*.json.gz',
 ]
 file_index = 'dataset/file_index.pth'
 file_batch_size = 15
@@ -72,7 +77,7 @@ beta_lr = 5e-4
 
 [baseline]
 device = 'cuda:0'
-state_file = 'model/mortal-v0.pth'
+state_file = 'model/mortal-v2.6.pth'
 
 [online.remote]
 host = '127.0.0.1'
@@ -89,14 +94,14 @@ capacity = 1600
 stochastic_latent = false
 
 [1v3]
-games_per_iter = 2000
-iters = 500
+games_per_iter = 800
+iters = 10
 log_dir = 'log/1v3'
 
 [1v3.challenger]
 device = 'cuda:0'
 name = 'mortal'
-state_file = '/path/to/challenger.pth'
+state_file = 'model/mortal-v3.1.pth'
 stochastic_latent = false
 enable_amp = true
 enable_rule_based_agari_guard = true
@@ -104,7 +109,7 @@ enable_rule_based_agari_guard = true
 [1v3.champion]
 device = 'cuda:0'
 name = 'baseline'
-state_file = '/path/to/baseline.pth'
+state_file = 'model/mortal-v2.6.pth'
 stochastic_latent = false
 enable_amp = true
 enable_rule_based_agari_guard = true

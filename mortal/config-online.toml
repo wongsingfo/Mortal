@@ -18,8 +18,8 @@ online = true
 [train_play.default]
 games = 800
 log_dir = 'log/train_play'
-boltzmann_epsilon = 0.001
-boltzmann_temp = 0.01
+boltzmann_epsilon = 0.005
+boltzmann_temp = 0.05
 repeats = 2
 
 [test_play]
@@ -66,7 +66,7 @@ beta_lr = 5e-4
 
 [baseline]
 device = 'cuda:0'
-state_file = 'model/mortal-v0.pth'
+state_file = 'model/mortal-v3.2.pth'
 
 [online.remote]
 host = '127.0.0.1'

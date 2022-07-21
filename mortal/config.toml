@@ -12,7 +12,7 @@ opt_step_every = 16
 save_every = 800
 test_every = 20000
 
-online = false
+online = true
 
 # using env `TRAIN_PLAY_PROFILE`
 [train_play.default]
@@ -30,13 +30,7 @@ log_dir = 'log/test_play'
 globs = [
 	'dataset/tenhou_n22/*.json.gz',
 	'dataset/tenhou_n21/*.json.gz',
-	'dataset/tenhou_n20/*.json.gz',
 	'dataset/tenhou_n19/*.json.gz',
-	'dataset/tenhou_n18/*.json.gz',
-	'dataset/tenhou_n17/*.json.gz',
-	'dataset/tenhou_n16/*.json.gz',
-	'dataset/tenhou_n15/*.json.gz',
-	'dataset/tenhou_n13/*.json.gz',
 ]
 file_index = 'dataset/file_index.pth'
 file_batch_size = 15
@@ -65,14 +59,14 @@ mortal = true
 oracle = true
 
 [optim]
-mortal_lr = 1e-4
-oracle_lr = 1e-4
-dqn_lr = 1e-4
+mortal_lr = 1e-5
+oracle_lr = 1e-5
+dqn_lr = 1e-5
 beta_lr = 5e-4
 
 [baseline]
 device = 'cuda:0'
-state_file = 'model/mortal-v0.pth'
+state_file = 'model/mortal-v3.2.pth'
 
 [online.remote]
 host = '127.0.0.1'
