@@ -7,12 +7,12 @@ enable_cudnn_benchmark = true
 enable_amp = false
 
 batch_size = 512
-opt_step_every = 16
+opt_step_every = 1
 
 save_every = 800
-test_every = 20000
+test_every = 9600 # must be the mutiple of save_every
 
-online = true
+online = false
 
 # using env `TRAIN_PLAY_PROFILE`
 [train_play.default]
@@ -30,10 +30,21 @@ log_dir = 'log/test_play'
 globs = [
 	'dataset/tenhou_n22/*.json.gz',
 	'dataset/tenhou_n21/*.json.gz',
+	'dataset/tenhou_n20/*.json.gz',
 	'dataset/tenhou_n19/*.json.gz',
+	'dataset/tenhou_n18/*.json.gz',
+	'dataset/tenhou_n17/*.json.gz',
+	'dataset/tenhou_n16/*.json.gz',
+	'dataset/tenhou_n15/*.json.gz',
+	# 'dataset/tenhou_n14/*.json.gz', # invalid data
+	'dataset/tenhou_n13/*.json.gz',
+	'dataset/tenhou_n12/*.json.gz',
+	'dataset/tenhou_n11/*.json.gz',
+	'dataset/tenhou_n10/*.json.gz',
+	'dataset/tenhou_n9/*.json.gz',
 ]
 file_index = 'dataset/file_index.pth'
-file_batch_size = 15
+file_batch_size = 20
 num_workers = 1
 quality_threshold = 0
 
@@ -59,14 +70,14 @@ mortal = true
 oracle = true
 
 [optim]
-mortal_lr = 1e-5
-oracle_lr = 1e-5
-dqn_lr = 1e-5
+mortal_lr = 1e-4
+oracle_lr = 1e-4
+dqn_lr = 1e-4
 beta_lr = 5e-4
 
 [baseline]
 device = 'cuda:0'
-state_file = 'model/mortal-v3.2.pth'
+state_file = 'model/mortal-v2.6.pth'
 
 [online.remote]
 host = '127.0.0.1'
@@ -83,14 +94,14 @@ capacity = 1600
 stochastic_latent = false
 
 [1v3]
-games_per_iter = 2000
-iters = 500
+games_per_iter = 800
+iters = 10
 log_dir = 'log/1v3'
 
 [1v3.challenger]
 device = 'cuda:0'
 name = 'mortal'
-state_file = '/path/to/challenger.pth'
+state_file = 'model/mortal-v3.1.pth'
 stochastic_latent = false
 enable_amp = true
 enable_rule_based_agari_guard = true
@@ -98,7 +109,7 @@ enable_rule_based_agari_guard = true
 [1v3.champion]
 device = 'cuda:0'
 name = 'baseline'
-state_file = '/path/to/baseline.pth'
+state_file = 'model/mortal-v2.6.pth'
 stochastic_latent = false
 enable_amp = true
 enable_rule_based_agari_guard = true
@@ -118,7 +129,7 @@ num_layers = 2
 [grp.control]
 device = 'cuda:0'
 enable_cudnn_benchmark = false
-tensorboard_dir = 'grp_v2/log'
+tensorboard_dir = 'log/tensorboard'
 
 batch_size = 512
 save_every = 2000
@@ -126,18 +137,29 @@ val_steps = 400
 
 [grp.dataset]
 train_globs = [
-    'dataset/tenhou_n21/*.json.gz',
+	'dataset/tenhou_n21/*.json.gz',
+	'dataset/tenhou_n20/*.json.gz',
+	'dataset/tenhou_n18/*.json.gz',
+	'dataset/tenhou_n17/*.json.gz',
+	'dataset/tenhou_n16/*.json.gz',
+	'dataset/tenhou_n15/*.json.gz',
+	'dataset/tenhou_n13/*.json.gz',
+	'dataset/tenhou_n11/*.json.gz',
+	'dataset/tenhou_n10/*.json.gz',
+	'dataset/tenhou_n9/*.json.gz',
 ]
 val_globs = [
-    'dataset/tenhou_n22/*.json.gz',
+	'dataset/tenhou_n22/*.json.gz',
+	'dataset/tenhou_n19/*.json.gz',
+	'dataset/tenhou_n12/*.json.gz',
 ]
 
 # rebuild the index by delete this file
 file_index = 'dataset/grp_file_index.pth'
 file_batch_size = 50
 
-train_num_workers = 1
-val_num_workers = 1
+train_num_workers = 0
+val_num_workers = 0
 
 [grp.optim]
 lr = 1e-5

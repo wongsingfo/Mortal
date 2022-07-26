@@ -13,4 +13,5 @@ pushd "$dirname"
 popd
 rm "$filename".zip
 rm -r "$filename"
-
+LD_LIBRARY_PATH=/home/soar/anaconda3/lib ./validate_logs dirname | \
+	grep json | xargs rm

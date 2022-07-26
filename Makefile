@@ -2,6 +2,7 @@ all:
 
 online:
 	cp mortal/config-online.toml mortal/config.toml
+	cp mortal/model/grp-v0.pth mortal/model/grp.pth
 	(cd mortal && python train.py)
 
 online-server:
@@ -16,18 +17,25 @@ online-client:
 	cp mortal/config-offline.toml mortal/config.toml
 	(cd mortal && python one_vs_three.py)
 
+grp:
+	cp mortal/config-offline.toml mortal/config.toml
+	cp mortal/model/grp-v0.pth mortal/model/grp.pth
+	(cd mortal && python train_grp.py)
+
 offline:
 	cp mortal/config-offline.toml mortal/config.toml
+	cp mortal/model/grp-v0.pth mortal/model/grp.pth
 	(cd mortal && python train.py)
 
 rust:
 	# rustup default nightly
-	cargo build -p libriichi --lib --release
+	RUSTFLAGS=-g cargo build -p libriichi --lib --release
 	cargo build -p libriichi --bins --no-default-features --release
 	cargo build -p exe-wrapper
 	cp target/release/validate_logs mortal/dataset/
 	cp target/release/stat mortal/dataset/
 	cp target/release/libriichi.so mortal/
+	cp target/release/validate_aka mortal/dataset/
 
 pytorch-pip-cpu:
 	pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
@@ -53,7 +61,7 @@ restore:
 	cp mortal/model/mortal-v2.1.pth mortal/model/mortal.pth
 
 test:
-	(cd mortal && python mortal.py 2 < test.json)
+	(cd mortal && python mortal.py 1 < test.json)
 
 tensorboard:
 	tensorboard --logdir mortal/log/tensorboard
