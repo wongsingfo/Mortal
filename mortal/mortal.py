@@ -28,7 +28,9 @@ def main():
     device = torch.device('cpu')
     mortal = Brain(False, **config['resnet']).eval()
     dqn = DQN().eval()
-    state = torch.load(config['control']['state_file'], map_location=torch.device('cpu'))
+    # state = torch.load(config['control']['state_file'], map_location=torch.device('cpu'))
+    state = torch.load(config['baseline']['state_file'], map_location=torch.device('cpu'))
+# state = torch.load(config['majsoul']['state_file'], map_location=torch.device('cpu'))
     mortal.load_state_dict(state['mortal'])
     dqn.load_state_dict(state['current_dqn'])
 
@@ -52,7 +54,8 @@ def main():
 
         if reaction := bot.react(line):
             print(reaction, flush=True)
-        elif review_mode:
+        # elif review_mode:
+        else:
             print('{"type":"none","meta":{"mask_bits":0}}', flush=True)
 
     if review_mode:

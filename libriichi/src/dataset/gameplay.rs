@@ -316,6 +316,7 @@ impl Gameplay {
     // Inlined because its callsite is extremely hot.
     #[inline(always)]
     fn extend_from_event_window(&mut self, ctx: &mut LoaderContext<'_>, wnd: &[Event; 4]) {
+        // TODO: add houjuu events
         let LoaderContext {
             config,
             invisibles,
