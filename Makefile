@@ -36,6 +36,16 @@ rust:
 	cp target/release/stat mortal/dataset/
 	cp target/release/libriichi.so mortal/
 	cp target/release/validate_aka mortal/dataset/
+	cp target/release/validate_tsumogiri mortal/dataset/
+
+rust-debug:
+	# rustup default nightly
+	RUSTFLAGS=-g cargo build -p libriichi --lib
+	cargo build -p libriichi --bins --no-default-features
+	cargo build -p exe-wrapper
+	cp target/debug/validate_logs mortal/dataset/
+	cp target/debug/stat mortal/dataset/
+	cp target/debug/libriichi.so mortal/
 
 pytorch-pip-cpu:
 	pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
